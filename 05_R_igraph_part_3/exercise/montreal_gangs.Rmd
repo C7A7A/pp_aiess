@@ -1,0 +1,78 @@
+---
+title: "Montreal Gangs"
+output:
+  html_document: default
+  pdf_document: default
+date: "2024-04-17"
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+```{r, echo = FALSE}
+library(igraph)
+
+setwd("C:/Users/User/studia/pp_aiess/05_R_igraph_part_3/exercise")
+```
+
+## 1. Data
+Network representing relationships between gangs, obtained from Montreal Police’s central intelligence database, spanning 2004 to 2007. Nodes are gangs, and an edge represents some kind of relationship between two gangs (as elicited from interviews with gang members). 
+
+```{r}
+data <- read.csv("montreal/MONTREALGANG.csv", header = TRUE, row.names = 1)
+
+adj_matrix <- as.matrix(data)
+net <- graph_from_adjacency_matrix(adj_matrix, mode = "max", weighted = TRUE, diag = FALSE)
+plot(net, layout = layout_nicely(net))
+```
+
+## 2. Node centrality
+```{r}
+degree_centrality <- degree(net)
+nodes_size <- 10 + 10 * degree_centrality / max(degree_centrality)
+plot(net, layout = layout_nicely(net), vertex.size=nodes_size)
+```
+
+## 3. Degree distribution
+```{r}
+degree_distr = degree_distribution(net)
+hist(
+  degree_centrality, 
+  breaks = 20, 
+  col = "skyblue", 
+  main = "Degree Distribution", 
+  xlab = "Degree", 
+  ylab = "Frequency"
+)
+```
+
+## 4. Longest path in net
+```{r}
+diamenter_path = get_diameter(net)
+
+ecol <- rep("gray80", ecount(net))
+ecol[E(net, path=diamenter_path)] <- "orange" 
+
+ew <- rep(2, ecount(net))
+ew[diamenter_path] <- 4
+
+vcol <- rep("gray40", vcount(net))
+vcol[diamenter_path] <- "gold"
+
+plot(net, 
+   vertex.color=vcol, 
+   edge.color=ecol, 
+   edge.width=ew, 
+   edge.arrow.mode=0,
+   layout = layout.fruchterman.reingold
+)
+```
+
+## 5. Communities
+```{r}
+clp <- cluster_label_prop(net)
+plot(clp, net)
+```
+
+
+

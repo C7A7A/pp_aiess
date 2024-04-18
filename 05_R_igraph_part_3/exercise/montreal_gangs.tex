@@ -1,0 +1,207 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Montreal Gangs},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Montreal Gangs}
+\author{}
+\date{\vspace{-2.5em}2024-04-17}
+
+\begin{document}
+\maketitle
+
+\hypertarget{data}{%
+\subsection{1. Data}\label{data}}
+
+Network representing relationships between gangs, obtained from Montreal
+Police's central intelligence database, spanning 2004 to 2007. Nodes are
+gangs, and an edge represents some kind of relationship between two
+gangs (as elicited from interviews with gang members).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"montreal/MONTREALGANG.csv"}\NormalTok{, }\AttributeTok{header =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{row.names =} \DecValTok{1}\NormalTok{)}
+
+\NormalTok{adj\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(data)}
+\NormalTok{net }\OtherTok{\textless{}{-}} \FunctionTok{graph\_from\_adjacency\_matrix}\NormalTok{(adj\_matrix, }\AttributeTok{mode =} \StringTok{"max"}\NormalTok{, }\AttributeTok{weighted =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{diag =} \ConstantTok{FALSE}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(net, }\AttributeTok{layout =} \FunctionTok{layout\_nicely}\NormalTok{(net))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{montreal_gangs_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\hypertarget{node-centrality}{%
+\subsection{2. Node centrality}\label{node-centrality}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{degree\_centrality }\OtherTok{\textless{}{-}} \FunctionTok{degree}\NormalTok{(net)}
+\NormalTok{nodes\_size }\OtherTok{\textless{}{-}} \DecValTok{10} \SpecialCharTok{+} \DecValTok{10} \SpecialCharTok{*}\NormalTok{ degree\_centrality }\SpecialCharTok{/} \FunctionTok{max}\NormalTok{(degree\_centrality)}
+\FunctionTok{plot}\NormalTok{(net, }\AttributeTok{layout =} \FunctionTok{layout\_nicely}\NormalTok{(net), }\AttributeTok{vertex.size=}\NormalTok{nodes\_size)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{montreal_gangs_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\hypertarget{degree-distribution}{%
+\subsection{3. Degree distribution}\label{degree-distribution}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{degree\_distr }\OtherTok{=} \FunctionTok{degree\_distribution}\NormalTok{(net)}
+\FunctionTok{hist}\NormalTok{(}
+\NormalTok{  degree\_centrality, }
+  \AttributeTok{breaks =} \DecValTok{20}\NormalTok{, }
+  \AttributeTok{col =} \StringTok{"skyblue"}\NormalTok{, }
+  \AttributeTok{main =} \StringTok{"Degree Distribution"}\NormalTok{, }
+  \AttributeTok{xlab =} \StringTok{"Degree"}\NormalTok{, }
+  \AttributeTok{ylab =} \StringTok{"Frequency"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{montreal_gangs_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\hypertarget{longest-path-in-net}{%
+\subsection{4. Longest path in net}\label{longest-path-in-net}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{diamenter\_path }\OtherTok{=} \FunctionTok{get\_diameter}\NormalTok{(net)}
+
+\NormalTok{ecol }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\StringTok{"gray80"}\NormalTok{, }\FunctionTok{ecount}\NormalTok{(net))}
+\NormalTok{ecol[}\FunctionTok{E}\NormalTok{(net, }\AttributeTok{path=}\NormalTok{diamenter\_path)] }\OtherTok{\textless{}{-}} \StringTok{"orange"} 
+
+\NormalTok{ew }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{2}\NormalTok{, }\FunctionTok{ecount}\NormalTok{(net))}
+\NormalTok{ew[diamenter\_path] }\OtherTok{\textless{}{-}} \DecValTok{4}
+
+\NormalTok{vcol }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\StringTok{"gray40"}\NormalTok{, }\FunctionTok{vcount}\NormalTok{(net))}
+\NormalTok{vcol[diamenter\_path] }\OtherTok{\textless{}{-}} \StringTok{"gold"}
+
+\FunctionTok{plot}\NormalTok{(net, }
+   \AttributeTok{vertex.color=}\NormalTok{vcol, }
+   \AttributeTok{edge.color=}\NormalTok{ecol, }
+   \AttributeTok{edge.width=}\NormalTok{ew, }
+   \AttributeTok{edge.arrow.mode=}\DecValTok{0}\NormalTok{,}
+   \AttributeTok{layout =}\NormalTok{ layout.fruchterman.reingold}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{montreal_gangs_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\hypertarget{communities}{%
+\subsection{5. Communities}\label{communities}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{clp }\OtherTok{\textless{}{-}} \FunctionTok{cluster\_label\_prop}\NormalTok{(net)}
+\FunctionTok{plot}\NormalTok{(clp, net)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{montreal_gangs_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\end{document}

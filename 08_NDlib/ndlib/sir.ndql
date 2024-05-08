@@ -1,0 +1,40 @@
+CREATE_NETWORK g1
+TYPE erdos_renyi_graph
+PARAM n 300
+PARAM p 0.1
+
+MODEL SIR
+
+STATUS Susceptible
+STATUS Infected
+STATUS Removed
+
+# definicja kolekcji wierzchołków
+
+COMPARTMENT c1
+TYPE NodeStochastic
+PARAM rate 0.1
+TRIGGER Infected
+
+COMPARTMENT c2
+TYPE NodeStochastic
+PARAM rate 0.1
+
+# definicja reguł przejść
+
+RULE
+FROM Susceptible
+TO Infected
+USING c1
+
+RULE
+FROM Infected
+TO Removed
+USING c2
+
+# konfiguracja modelu
+
+INITIALIZE
+SET Infected 0.1
+
+EXECUTE SIR ON g1 FOR 5
